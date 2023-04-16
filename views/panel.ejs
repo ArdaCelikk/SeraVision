@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeraVision | Panel</title>
+    <link rel="stylesheet" href="/home/css/loadingscreen.css">
+    <link rel="icon" href="/home/img/favicon.png">
+    <link rel="stylesheet" href="/panel/css/style.css">
+    <link rel="stylesheet" href="/panel/css/responsive.css">
+</head>
+
+<body>
+    <div class="loaderContainer">
+        <div class="loader"></div>
+    </div>
+
+    <div id="app" class="container">
+        <%- include("partials/_dashboardnav") %>
+
+        <main>
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+
+
+                <div class="user">
+                    <img src="/default/user.png" alt="">
+                </div>
+            </div>
+            
+            <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <div class="numbers" style="font-size: 1.8em" id="statusHeater">Kapalı</div>
+                        <div class="cardName" >Isıtıcı</div>
+                    </div>
+
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers"  style="font-size: 1.8em" id="statusFan">Kapalı</div>
+                        <div class="cardName" >Havalandırma Sistemi</div>
+                    </div>
+
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers"  style="font-size: 1.8em" id="statusWatering">Kapalı</div>
+                        <div class="cardName" class="cBlue">Sulama Sistemi</div>
+                    </div>
+
+
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers"  style="font-size: 1.8em" id="statusLight">Açık</div>
+                        <div class="cardName">Işık</div>
+                    </div>
+                </div>
+                
+                
+                <div class="card">
+                    <div>
+                        <div class="numbers" id="temperature">22</div>
+                        <div class="cardName">Sera Sıcaklığı</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="thermometer-outline" class="cRed"></ion-icon>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers" id="lightAmount">22</div>
+                        <div class="cardName">Sera Işık Miktarı</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="sunny-outline" style="color:#ddaa00"></ion-icon>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers" id="humadityAmount">22</div>
+                        <div class="cardName" class="cBlue">Sera Nem Miktarı</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="rainy-outline" class="cBlue"></ion-icon>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers" id="soilhumadityAmount">22</div>
+                        <div class="cardName">Sera Toprak Nemi Miktarı</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="flower-outline" style="color:#734a12"></ion-icon>
+                    </div>
+                </div>
+            </div>
+            
+            
+
+            
+            
+            
+
+
+            <div class="chartsContainer">
+                <div class="chart">
+                    <div class="chartHeader">
+                        <div class="icon"><ion-icon name="thermometer-outline"></ion-icon></div>
+                        <div class="text">Sıcaklık</div>
+                    </div>
+
+                    <div class="chartMain">
+                        <canvas id="myChart"></canvas>
+                    </div>
+
+                    <div class="chartFooter">
+                        <span id="lastSicaklik"></span>
+                    </div>
+                </div>
+
+                <div class="chart">
+                    <div class="chartHeader">
+                        <div class="icon"><ion-icon name="water-outline"></ion-icon></div>
+                        <div class="text">Nem</div>
+                    </div>
+
+                    <div class="chartMain">
+                        <canvas id="myChart2"></canvas>
+                    </div>
+
+                    <div class="chartFooter">
+                        <span id="lastHumadity"></span>
+                    </div>
+                </div>
+
+
+                <div class="chart">
+                    <div class="chartHeader">
+                        <div class="icon"><ion-icon name="water-outline"></ion-icon></div>
+                        <div class="text">Toprak</div>
+                    </div>
+
+                    <div class="chartMain">
+                        <canvas id="myChart3"></canvas>
+                    </div>
+
+                    <div class="chartFooter">
+                        <span></span>
+                    </div>
+                </div>
+
+                <div class="chart">
+                    <div class="chartHeader">
+                        <div class="icon"><ion-icon name="water-outline"></ion-icon></div>
+                        <div class="text">Işık</div>
+                    </div>
+
+                    <div class="chartMain">
+                        <canvas id="myChart4"></canvas>
+                    </div>
+
+                    <div class="chartFooter">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+
+            
+        </main>
+
+    </div>
+
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/panel/js/main.js"></script> 
+
+    <script>
+        let loading = document.querySelector(".loaderContainer")
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                loading.style.opacity = "0"
+                setTimeout(() => {
+                    loading.style.display = "none"
+                }, 500);
+            }, 1000);
+        })
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeraVision | Hakkımızda</title>
+    <link rel="website icon" href="/logo/favicon.png">
+    <style>
+ 
+    </style>
+    <link rel="stylesheet" href="/aboutus/css/loadingscreen.css">
+    <link rel="stylesheet" href="/aboutus/css/style.css">
+    <link rel="stylesheet" href="/aboutus/css/togglemenu.css">
+    <link rel="stylesheet" href="/aboutus/css/responsive.css">
+</head>
+<body>
+    
+    <div class="loaderContainer">
+        <div class="loader"></div>
+    </div>
+
+    <div class="container">
+        <%- include("partials/_nav") %>
+
+        <main>
+            <section>
+                <h1>Hakkımızda</h1>
+            </section>
+
+
+            <div class="aboutUs">
+                <div class="header">Hakkımızda</div>
+                <div class="mainText">
+                    Akıllı sera sitesi olarak, sera üreticilerine ve bahçe tutkunlarına hizmet veren bir platformuz. Amacımız, kullanıcılarımızın bitkilerini daha verimli bir şekilde yetiştirmelerine ve sera üretimlerini daha karlı hale getirmelerine yardımcı olmaktır.
+
+Ekibimiz, ayların deneyimine sahip bahçe tutkunları ve ortalama seviye yazılım geliştiricilerinden oluşmaktadır. Bu birleşim sayesinde, bitki yetiştirme teknolojilerindeki son trendleri takip ediyor ve bunları müşterilerimizin ihtiyaçlarına uygun hale getiriyoruz.
+
+Akıllı sera sitesinde, kullanıcılarımıza uzaktan takip, otomatik sulama, sıcaklık ve nem kontrolü ve aydınlatma  sistemleri gibi birçok özellik sunuyoruz. Ayrıca, kullanıcılarımızın bitkileri için ideal yetiştirme koşullarını sağlamalarına yardımcı olacak çeşitli içerikler ve öneriler de sunmaktayız.
+
+Siz de akıllı sera teknolojilerini kullanarak bitki yetiştiriciliğinde yeni bir dönem başlatmak istiyorsanız, doğru yerdesiniz! Bizimle çalışarak, bitkilerinizi daha verimli, daha sağlıklı ve daha karlı hale getirebilirsiniz.
+                </div>
+            </div>
+        </main>
+
+        <%- include("partials/_footer") %>
+    </div>
+
+    <%- include("partials/_togglemenu") %>
+<script src="/aboutus/js/main.js?ver=0.1"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script>
+
+
+    let loading = document.querySelector(".loaderContainer")
+    window.addEventListener("load",()=>{
+        setTimeout(() => {
+            loading.style.opacity="0"
+            setTimeout(() => {
+                loading.style.display="none"
+            }, 500);
+        }, 1000);
+    })
+</script>
+</body>
+</html>

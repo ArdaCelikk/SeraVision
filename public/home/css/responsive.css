@@ -1,0 +1,115 @@
+@media (max-width:1300px) {
+    .features .features-main{
+        grid-template-columns: repeat(1,1fr);
+    }
+}
+
+@media (max-width:1100px){
+    nav .menu{
+        display: none;
+    }
+    nav .button-group{
+        display: none;
+    }
+    nav{
+        justify-content: space-between;
+        flex-direction: row-reverse;
+    }
+    nav .toggle{
+        display: flex;
+    }
+}
+@media(max-width:1000px){
+    main section .right{
+        display: none;
+    }
+    main section .left{
+        grid-column-start: 1;
+        grid-column-end: 6;
+    }
+    .company-name{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .company-slogan{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    main section .left .button-group{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .photo-filter{
+        font-size: 3em;
+    }
+    .features{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media(max-width:670px){
+    .photo-filter{
+        font-size:2.3em;
+    }
+    section .left .company-name{
+        font-size: 3.3em;
+    }
+    .features-header h1{
+        font-size: 1.4em;
+    }
+}
+
+@media(max-width:540px){
+    .photo-filter{
+        font-size: 2em;
+    }
+    .features-header h1{
+        font-size: 1.4em;
+    }
+    .company-name h1{
+        font-size: 1em;
+    }
+    .company-slogan{
+        font-size: 0.9em;
+    }
+    section .left .button-group button{
+        width: 100px;
+    }
+    section{
+        height: 400px;
+    }
+    footer .footer-top .footer-navbar{
+        display: none;
+    }
+    .footer-bottom .box{
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 10px;
+    }
+    footer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        flex-direction: column;
+    }
+    footer .footer-top{
+        width: 80%;
+        border-bottom: 1px solid var(--black);
+        padding-bottom: 20px;
+    }
+    .features{
+        padding-bottom: 30px;
+    }
+}
+
+@media (max-width:400px){
+    .photo-filter{
+        text-align: center;
+    }
+}

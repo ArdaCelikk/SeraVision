@@ -1,0 +1,125 @@
+:root {
+    --white: #fff;
+    --gray: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+    --black:#151a1f;
+    --green:#295739;
+    --blue2:#1278aa;
+    --orange:#ff6302;
+    --red:#ee092d;
+  }
+.toggleMenu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 0;
+    margin-left: -200px;
+    background-color: var(--green);
+    transition-duration: 0.5s;
+}
+
+.toggleMenu.active{
+    width: 300px;
+    display: block;
+    margin: 0;
+}
+
+.toggleMenu .header{
+    width: 100%;
+    padding: 20px;
+    font-size: 1.5em;
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.toggleMenu .header .text{
+    display: flex;
+    align-items: center;
+}
+
+.toggleMenu .closer{
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.toggleMenu .main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.toggleMenu .main .menu{
+    width: 100%;
+}
+
+.toggleMenu .main .menu ul{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+.toggleMenu .main .menu ul li{
+    width: 100%;
+    list-style: none;
+    padding-left: 20px;
+    display: flex;
+    gap: 20px;
+    color: var(--white);
+}
+
+.toggleMenu .main .menu ul li a{
+    color: var(--white);
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 10px;
+    white-space: nowrap;
+}
+.toggleMenu .main .menu ul li .icon{
+    font-size: 1.75rem;
+    height: 60px;
+    text-align: center;
+    line-height: 75px;
+}
+
+.toggleMenu .main .menu ul li:hover,
+.toggleMenu .main .menu ul li:hover a{
+    background-color: var(--white);
+    color: var(--green);
+}
+
+.toggleMenu .main .button-group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    gap: 10px;
+    flex-direction: column;
+    padding-top: 50px;
+}
+
+.toggleMenu .main .button-group button{
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--black);
+}
+
+.toggleMenu .main .button-group  #btnToggleRegister{
+    background-color: var(--white);
+}
+
+.toggleMenu .main .button-group #btnToggleLogin{
+    background-color: transparent;
+    border: 1px solid var(--white);
+    color: var(--white);
+}

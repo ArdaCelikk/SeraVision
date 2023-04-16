@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeraVision | Anasayfa</title>
+    <link rel="icon" href="/logo/favicon.png">
+    <link rel="stylesheet" href="/home/css/loadingscreen.css">
+    <link rel="stylesheet" href="/home/css/home.css">
+    <link rel="stylesheet" href="/home/css/togglemenu.css">
+    <link rel="stylesheet" href="/home/css/responsive.css">
+</head>
+
+<body>
+<div class="loaderContainer">
+    <div class="loader"></div>
+</div>
+
+<div class="container">
+    <%- include("partials/_nav") %>
+
+    <main>
+        <section>
+            <div class="left">
+                <div class="company-name">
+                    <h1>SeraVision</h1>
+                </div>
+                <div class="company-slogan">
+                    <span>Akıllı Tarımın Güçlü Vizyonu</span>
+                </div>
+                <div class="button-group">
+                    <button id="btnLetStart" onclick="window.location.href = '/dashboard'">Başlayın</button>
+                    <button id="btnLearnMore" onclick="window.location.href='/hakkimizda'">Daha Fazla</button>
+                </div>
+            </div>
+            <div class="right">
+                <img src="/home/img/wom.png" alt="">
+            </div>
+        </section>
+
+        <div class="features">
+            <div class="features-header">
+                <h1>Kullanılan Sensörler</h1>
+            </div>
+            <div class="features-main">
+
+                <div class="sensor">
+                    <div class="icon"><ion-icon style="color:#ee092d" name="thermometer-outline"></ion-icon></div>
+
+                    <div class="texts">
+                        <div class="sensor-header">
+                            <div class="text">Sıcaklık Sensörü</div>
+                        </div>
+                        <div class="sensor-main">
+                             Bu sensör, sıcaklık ve nem ölçümleri yapabilen bir mikrodenetleyici entegresi ve bir nem ve sıcaklık algılama elemanı içerir. Sensör, dijital olarak verileri iletmek için tek bir veri hattı kullanır ve sıcaklık ölçüm aralığı 0 ila 50°C, nem ölçüm aralığı ise 20 ila 90% arasındadır.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sensor">
+                    <div class="icon"><ion-icon style="color:#734a12" name="flower-outline"></ion-icon></div>
+
+                    <div class="texts">
+                        <div class="sensor-header">
+                            <div class="text">Toprak Nem Sensörü</div>
+                        </div>
+                        <div class="sensor-main">
+                            Bu sensör toprağın nem seviyesini ölçmek için kullanılan bir sensördür. Bu sensör, iki adet tel sondası ve bir entegre devre içerir. Sondalar toprağa batırılır ve topraktaki nem seviyesi, devrenin direncini değiştirir. Sensör, kolay kurulumu, düşük güç tüketimi ve hassas ölçüm yeteneği nedeniyle bitkilerin veya diğer toprak tabanlı sistemlerin sulama gereksinimlerini belirlemek için sıkça kullanılır.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sensor">
+                    <div class="icon"><ion-icon style="color:#ddaa00 "  name="sunny-outline"></ion-icon></div>
+
+                    <div class="texts">
+                        <div class="sensor-header">
+                            <div class="text">Işık Sensörü</div>
+                        </div>
+                        <div class="sensor-main">
+                            Bu sensör ışığa duyarlı bir direnç olarak adlandırılan bir elektronik bileşendir. Bu bileşen, ışık seviyesi değiştiğinde direncindeki değişiklik nedeniyle elektriksel sinyal üretir. Işık Sensörü, çoğunlukla ortam ışığının ölçülmesi için kullanılır.Örneğin, bir ışık sensörü olarak kullanılarak bir oda ışığı seviyesinin tespit edilmesi veya bir fotoğraf makinesindeki pozlama ayarlarının otomatik olarak yapılması gibi uygulamalar için kullanılabilir.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sensor">
+                    <div class="icon"><ion-icon style="color:#1278aa " name="water-outline"></ion-icon></div>
+
+                    <div class="texts">
+                        <div class="sensor-header">
+                            <div class="text">Su Seviye Sensörü</div>
+                        </div>
+                        <div class="sensor-main">
+                            Su sensörleri, suyun varlığını veya seviyesini algılamak için kullanılan farklı teknolojilerde üretilen bileşenlerdir. Örneğin, bir su seviye sensörü, su seviyesine bağlı olarak değişen bir direnç, kapasitör veya ultrasonik sinyal kullanarak su seviyesini ölçebilir. Bu sensörler, otomatik sulama sistemleri, su tankları, su kaçağı tespiti ve diğer birçok uygulama için kullanılabilir.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="greenhouse-photo">
+            <div class="photo-filter">
+                Akıllı Tarımın Güçlü Vizyonu
+            </div>
+        </div>
+    </main>
+
+    <%- include("partials/_footer") %>
+    
+</div>
+<%- include("partials/_togglemenu") %>
+ 
+<script src="/home/js/main.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script>
+    let loading = document.querySelector(".loaderContainer")
+    window.addEventListener("load", () => {
+        setTimeout(() => {
+            loading.style.opacity = "0"
+            setTimeout(() => {
+                loading.style.display = "none"
+            }, 500);
+        }, 1000);
+    })
+</script>
+</body>
+
+</html>

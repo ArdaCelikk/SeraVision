@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeraVision | Panel</title>
+    <link rel="icon" href="/logo/favicon.png">
+    <link rel="stylesheet" href="/home/css/loadingscreen.css">
+    <link rel="stylesheet" href="/ayarlar/css/style.css">
+    <link rel="stylesheet" href="/ayarlar/css/responsive.css">
+</head>
+
+<body>
+     <div class="loaderContainer">
+        <div class="loader"></div>
+    </div> 
+
+    <div class="container" id="app">
+        <%- include("partials/_dashboardnav") %>
+        
+
+        <main>
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+
+
+                <div class="user">
+                    <img src="/default/user.png" alt="">
+                </div>
+            </div>
+
+            <div class="settingsContainer">
+
+
+                <div class="minTempSettings">
+                    <fieldset>
+                        <legend>Işık Ayarları</legend>
+
+                        <div class="radioButtonGroup">
+                            <span><input type="radio" name="light" checked value="manuel" id="rbLightManuel"> El ile Ayarlama</span>
+                            <span><input type="radio" name="light" value="percentile" id="rbLightPercentile"> Lümen Ayarlı</span>
+                            <span><input type="radio" name="light" id="rbLightClockset"> Saat Ayarlı</span>
+                        </div>
+
+
+                        <div class="setting">
+                            <div class="manuel" id="boxLightManuel">
+                                <button @click="setLight()">Aç / Kapa</button>
+                            </div>
+
+                            <div class="percentile" id="boxLightPercentile">
+                                <div class="ranges">
+                                    <div class="rangesDiv">
+                                        <input type="range"  name="rangeLight" min="0" value="1" max="1023" v-model="ldrFinish" id="rangeLightMax">
+                                        <span id="lblLightMax">Maksimum Işık Değeri: Kapalı</span>
+                                    </div>
+                                    <div class="rangesDiv">
+                                        <input type="range"  name="rangeLight" min="20" value="0" max="1023" v-model="ldrStart" id="rangeLightMin">
+                                        <span id="lblLightMin">Minimum Işık Değeri: Kapalı</span>
+                                    </div>
+                                </div>
+                                <br>
+                                <button @click="setLdrRange()">Ayarla</button>
+                            </div>
+
+                            <div class="clockset" id="boxLightClockset">
+                                <div class="timeinterval">
+                                    <div class="clock">
+                                        <span>Başlangıç Saati:</span>
+                                        <input type="time" name="" id="" v-model="ledStart">
+                                    </div>
+
+
+                                    <div class="clock">
+                                        <span>Bitiş Saati:</span>
+                                        <input type="time" name="" id="" v-model="ledFinish">
+                                    </div>
+                                </div>
+
+                                <button @click="setLedTime()">Saati Ayarla</button>
+                            </div>
+
+                        </div>
+
+                    </fieldset>
+                </div>
+
+
+
+
+                <div class="minTempSettings">
+                    <fieldset>
+                        <legend>Sulama Ayarları</legend>
+
+                        <div class="radioButtonGroup">
+                            <span><input type="radio" name="watering" checked value="manuel" id="rbWateringManuel"> El ile Ayarlama</span>
+                            <span><input type="radio" name="watering" value="percentile" id="rbWateringPercentile"> Nem Ayarlı</span>
+                            <span><input type="radio" name="watering" id="rbWateringClockset"> Saat Ayarlı</span>
+                        </div>
+
+
+                        <div class="setting">
+                            <div class="manuel" id="boxWateringManuel">
+                                <button @click="setPump()">Aç / Kapa</button>
+                            </div>
+
+                            <div class="percentile" id="boxWateringPercentile">
+                                <div class="ranges">
+                                    <div class="rangesDiv">
+                                        <input type="range"  name="rangeWateringMax" min="0" value="0" max="950" id="rangeWateringMax" v-model="pumpFinish">
+                                        <span id="lblWateringMax">Minimum Toprak Nem Değeri: 0</span>
+                                    </div>
+                                    <div class="rangesDiv">
+                                        <input type="range"  name="rangeWateringMin" min="0" value="0" max="950" id="rangeWateringMin" v-model="pumpStart">
+                                        <span id="lblWateringMin">Minimum Toprak Nem Değeri: 0</span>
+                                    </div>
+                                </div>
+                                
+                                <br>
+                                <button @click="setPumpRange()">Ayarla</button>
+                            </div>
+
+                            <div class="clockset" id="boxWateringClockset">
+                                <div class="timeinterval">
+                                    <div class="clock">
+                                        <span>Başlangıç Saati:</span>
+                                        <input type="time" name="" id="" v-model="pumpStart">
+                                    </div>
+
+
+                                    <div class="clock">
+                                        <span>Bitiş Saati:</span>
+                                        <input type="time" name="" id="" v-model="pumpFinish">
+                                    </div>
+                                </div>
+
+                                <button @click="setPumpTime()">Saati Ayarla</button>
+                            </div>
+
+                        </div>
+
+                    </fieldset>
+                </div>
+
+
+
+
+
+
+                <div class="maxTempSettings">
+                    <fieldset id="">
+                        <legend>Isıtma Ayarları</legend>
+                        <div class="radioButtonGroup">
+                            <span><input type="radio" name="maxTemp" checked value="manuel" id="rbMaxTempManuel"> El İle Ayarla</span>
+                            <span><input type="radio" name="maxTemp" value="percentile" id="rbMaxTempPercentile"> Derece Ayarlı</span>
+                            <span><input type="radio" name="maxTemp" id="rbMaxTempClockset"> Saat Ayarlı</span>
+                        </div>
+
+                        <div class="setting">
+                            <div class="manuel" id="boxMaxTempManuel">
+                                <button @click="setHeater()">Aç / Kapat</button>
+                            </div>
+
+                            <div class="percentile" id="boxMaxTempPercentile">
+                                <input type="range"  name="rangeMaxTempPercentile" min="0" value="0" max="40" id="rangeMaxTempPercentile" v-model="heaterStart">
+                                <span id="lblMinTemp">Minimum Sıcaklık: 0</span>
+                                <br>
+                                <button @click="setHeaterRange()">Ayarla</button>
+                            </div>
+
+                            <div class="clockset" id="boxMaxTempClockset">
+                                <div class="timeinterval">
+                                    <div class="clock">
+                                        <span>Başlangıç Saati:</span>
+                                        <input type="time" name="" id="" v-model="heaterStart">
+                                    </div>
+
+
+                                    <div class="clock">
+                                        <span>Bitiş Saati:</span>
+                                        <input type="time" name="" id="" v-model="heaterFinish">
+                                    </div>
+                                </div>
+
+                                <button @click="setHeaterTime()">Saati Ayarla</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+
+                <div class="minTempSettings">
+                    <fieldset>
+                        <legend>Soğutma Ayarları</legend>
+
+                        <div class="radioButtonGroup">
+                            <span><input type="radio" name="minTemp" checked value="manuel" id="rbMinTempManuel"> El ile Ayarlama</span>
+                            <span><input type="radio" name="minTemp" value="percentile" id="rbMinTempPercentile"> Derece Ayarlı</span>
+                            <span><input type="radio" name="minTemp" id="rbMinTempClockset"> Saat Ayarlı</span>
+                        </div>
+
+
+                        <div class="setting">
+                            <div class="manuel" id="boxMinTempManuel">
+                                <button @click="setFans()">Aç / Kapat</button>
+                            </div>
+
+                            <div class="percentile" id="boxMinTempPercentile">
+                                <input type="range"  name="rangeMinTempPercentile" min="0" value="0" max="40" id="rangeMinTempPercentile" v-model="heaterFinish">
+                                <span id="lblMaxTemp">Maksimum Sıcaklık: 0</span>
+                                <br>
+                                <button @click="setHeaterRange()">Ayarla</button>
+                            </div>
+
+                            <div class="clockset" id="boxMinTempClockset">
+                                <div class="timeinterval">
+                                    <div class="clock">
+                                        <span>Başlangıç Saati:</span>
+                                        <input type="time" name="" id="" v-model="fansStart">
+                                    </div>
+
+
+                                    <div class="clock">
+                                        <span>Bitiş Saati:</span>
+                                        <input type="time" name="" id="" v-model="fansFinish">
+                                    </div>
+                                </div>
+
+                                <button @click="setFansTime()">Saati Ayarla</button>
+                            </div>
+
+                        </div>
+
+                    </fieldset>
+                </div>
+                
+                                <div class="windowSettings">
+                    <fieldset>
+                        <legend>Pencere Ayarları</legend>
+
+                        <div class="radioButtonGroup">
+                            <span><input type="radio" name="minTemp" checked value="manuel" id="rbMinTempManuel"> El ile Ayarlama</span>
+                        </div>
+
+
+                        <div class="setting">
+                            <div class="manuel" id="boxMinTempManuel">
+                                <button @click="setWindow()">Aç / Kapat</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+
+
+
+                
+            </div>
+
+
+
+
+            
+            
+        </main>
+
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="/ayarlar/js/app.js"></script>
+    <script>
+      let loading = document.querySelector(".loaderContainer")
+    window.addEventListener("load",()=>{
+        setTimeout(() => {
+            loading.style.opacity="0"
+            setTimeout(() => {
+                loading.style.display="none"
+            }, 500);
+        }, 1000);
+    })
+    </script>
+</body>
+
+</html>

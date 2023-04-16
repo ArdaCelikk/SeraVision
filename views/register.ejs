@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeraVision | Kayıt Ol</title>
+    <link rel="website icon" href="/logo/favicon.png">
+    <link rel="stylesheet" href="/home/css/loadingscreen.css">
+    <link rel="stylesheet" href="/register/css/style.css">
+    
+    <link rel="stylesheet" href="/register/css/responsive.css">
+    
+</head>
+<body>
+
+<div class="loaderContainer">
+    <div class="loader"></div>
+</div>
+
+<div class="lcon">
+    <div class="login-container">
+        <div class="left">
+            <div class="logo"><a href="/"><img src="/logo/logoGreen.png" alt=""></a></div>
+            <div class="header">Kayıt Ol</div>
+            
+            <form  method="dialog" id="formRegister">
+
+                <div class="input_box">
+                    <div class="miniBox">
+                        <label for="username">Kullanıcı Adı:</label>
+                        <input type="text" required name="username" id="txtUsername">
+                    </div>
+
+                    <div class="miniBox">
+                        <label for="email">Email:</label>
+                        <input type="email" required name="email" id="txtEmail">
+                    </div>
+                </div>
+
+
+                <div class="input_box">
+                    <div class="miniBox">
+                        <label for="password">Şifre:</label>
+                        <input type="password" required name="password" id="txtPassword">
+                    </div>
+
+                    <div class="miniBox">
+                        <label for="passwordVerify">Şifreyi Onaylayın:</label>
+                        <input type="password" required name="passwordVerify" id="txtPasswordVerify">
+                    </div>
+                </div>
+
+
+                <div class="submit_box">
+                    <input type="submit" value="Kayıt Ol">
+                    <span id="lblAlert"></span>
+                </div>
+            </form>
+
+            <div class="beRegister">
+                Zaten Hesabınız Var Mı? <a href="/login">Giriş Yapın</a>.
+            </div>
+        </div>
+        <div class="right">
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+</div>
+
+<script src="/register/js/app.js"></script>
+    <script>
+        let loading = document.querySelector(".loaderContainer")
+    window.addEventListener("load",()=>{
+        setTimeout(() => {
+            loading.style.opacity="0"
+            setTimeout(() => {
+                loading.style.display="none"
+            }, 500);
+        }, 1000);
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+@media(max-width:990px){
+    
+    .login-container .right{
+        display: none;
+    }
+    .left{
+        width: 100%;
+    }
+    
+    .login-container{
+        width: 500px;
+    }
+}
+
+@media (max-width:575px){
+
+    .login-container{
+        height: 600px;
+    }
+    form .input_box{
+        width: 80%;
+    }
+    form .input_box{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .login-container{
+        width: 350px;
+    }
+}
+
+
+@media (max-height:675px){
+    @media(max-width:990px){
+        body{
+            height: 150vh;
+        }
+        .lcon{
+            height: 150vh;
+        }
+        .container{
+            height: 150vh;
+        }
+    }
+}
+
